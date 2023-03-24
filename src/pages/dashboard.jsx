@@ -49,20 +49,25 @@ export default function Dashboard() {
         <div className="dashboard">
             <h1>My Project</h1>
             <div className="ticket-container">
-                {tickets && uniqueCategories?.map((uniqueCategory, categoryIndex) => {
-                    // <div key={categoryIndex}>
-                    <h3>{uniqueCategory}</h3>
-                    {/* {tickets.filter(ticket => ticket.category === uniqueCategory)
-                            .map((filteredTicket, _index) => (
-                                <TicketCard
-                                    id={_index}
-                                    color={filteredTicket.color}
-                                    ticket={filteredTicket} />
-                            ))
-                        } */}
-                    // </div>
-                })}
+                {tickets && uniqueCategories?.map((uniqueCategory, index) =>
+                    <Ticket uniqueCategory={uniqueCategory} uniqueCategories={uniqueCategories}
+                        index={index} tickets={tickets} />)}
             </div>
         </div >
+    )
+}
+
+function Ticket({ uniqueCategory, index, tickets, uniqueCategories }) {
+    return (
+        <div key={index}>
+            <h3>{uniqueCategory}</h3>
+            {tickets.filter((tickets) => tickets.category === uniqueCategories[index])
+                .map((filteredTicket, _index) =>
+                    <TicketCard
+                        id={_index}
+                        color={filteredTicket.color}
+                        ticket={filteredTicket}
+                    />)}
+        </div>
     )
 }
