@@ -65,53 +65,53 @@ export default function TicketPage() {
                             value={formData.category}
                         />
                         <label >Priority </label>
-                        <div className="multiple-inut-container"></div>
-                        <input
-                            id="priority-1"
-                            name="priority"
-                            type="radio"
-                            onChange={handleChange}
-                            value={1}
-                            checked={formData.priority === 1}
-                        />
-                        <label className="priority-1"> 1</label>
-                        <input
-                            id="priority-2"
-                            name="priority"
-                            type="radio"
-                            onChange={handleChange}
-                            value={2}
-                            checked={formData.priority === 2}
-                        />
-                        <label className="priority-2"> 2</label>
-                        <input
-                            id="priority-3"
-                            name="priority"
-                            type="radio"
-                            onChange={handleChange}
-                            value={3}
-                            checked={formData.priority === 3}
-                        />
-                        <label className="priority-3"> 3</label>
-                        <input
-                            id="priority-4"
-                            name="priority"
-                            type="radio"
-                            onChange={handleChange}
-                            value={4}
-                            checked={formData.priority === 4}
-                        />
-                        <label className="priority-4"> 4</label>
-                        <input
-                            id="priority-5"
-                            name="priority"
-                            type="radio"
-                            onChange={handleChange}
-                            value={5}
-                            checked={formData.priority === 5}
-                        />
-                        <label className="priority-5"> 5</label>
-
+                        <div className="multiple-inut-container">
+                            <input
+                                id="priority-1"
+                                name="priority"
+                                type="radio"
+                                onChange={handleChange}
+                                value={1}
+                                checked={formData.priority === 1}
+                            />
+                            <label className="priority-1"> 1</label>
+                            <input
+                                id="priority-2"
+                                name="priority"
+                                type="radio"
+                                onChange={handleChange}
+                                value={2}
+                                checked={formData.priority === 2}
+                            />
+                            <label className="priority-2"> 2</label>
+                            <input
+                                id="priority-3"
+                                name="priority"
+                                type="radio"
+                                onChange={handleChange}
+                                value={3}
+                                checked={formData.priority === 3}
+                            />
+                            <label className="priority-3"> 3</label>
+                            <input
+                                id="priority-4"
+                                name="priority"
+                                type="radio"
+                                onChange={handleChange}
+                                value={4}
+                                checked={formData.priority === 4}
+                            />
+                            <label className="priority-4"> 4</label>
+                            <input
+                                id="priority-5"
+                                name="priority"
+                                type="radio"
+                                onChange={handleChange}
+                                value={5}
+                                checked={formData.priority === 5}
+                            />
+                            <label className="priority-5"> 5</label>
+                        </div>
                         {editMode &&
                             <>
                                 <input
