@@ -1,5 +1,12 @@
-export default function AvatarDisplay() {
+import blankavatar from "../images/blankavatar.png"
+
+export default function AvatarDisplay({ ticket }) {
     return (
-        <div>AvatarDisplay</div>
+        <div className="avatar-container">
+            <div className="image-container">
+                <img src={ticket.avatar ? ticket.avatar : blankavatar}
+                    alt={ticket.owner} />
+            </div>
+        </div>
     )
 }
