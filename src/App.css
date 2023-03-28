@@ -33,6 +33,10 @@ body {
   align-items: center
 }
 
+.nav .logo:hover {
+  cursor: pointer
+}
+
 .nav .controls-container {
   padding: 40px 25px;
   display: flex;
