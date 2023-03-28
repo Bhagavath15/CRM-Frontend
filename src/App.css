@@ -15,8 +15,8 @@ body {
 
 /* ------Nav------ */
 
-nav {
-  min-height: 100vh;
+.nav {
+  min-height: 150vh;
   background-color: rgb(43, 43, 63);
   color: rgb(255, 255, 255);
   text-align: center;
@@ -25,19 +25,26 @@ nav {
   justify-content: space-between
 }
 
-nav .logo-container,
-nav .controls-container {
+.nav .logo-container {
+  padding: 40px 25px;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.nav .controls-container {
   padding: 40px 25px;
   display: flex;
   flex-direction: column;
-
+  align-items: center
 }
 
-nav .logo-container img {
+.nav .logo-container img {
   width: 28px;
 }
 
-nav .icons {
+.nav .icons {
   color: rgb(255, 255, 255)
 }
 
@@ -48,94 +55,76 @@ nav .icons {
   width: 100%
 }
 
-.dashboard,
-.ticket-container {
+.dashboard {
   height: 80vh;
   /* overflow: scroll; */
 }
 
-
-/* -----TicketCard----- */
-.ticket-card {
-  display: flex;
-  width: 100%
+.loan-container {
+  margin: 10px;
+  margin-right: 50px;
 }
 
-.ticket-card #link {
-  display: flex;
-  width: 100%
-}
-
-.ticket-card #link>* {
+/* -----LoanCard----- */
+.loan-card {
   background-color: rgb(221, 221, 221);
   margin: 2px;
   padding: 30px;
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between
 }
 
-.ticket-card .ticket-color {
-  width: 15px !important;
-  padding: 10px !important;
-  margin: 2px;
-}
-
-.ticket-card .avatar-container {
+/* .loan-card .avatar {
   display: flex;
   justify-content: center;
   width: 80px;
-}
+} */
 
-.ticket-card .image-container {
+.loan-card .avatar {
   height: 50px;
   width: 50px;
   border-radius: 25x;
   overflow: hidden;
 }
 
-.ticket-card .image-container img {
+.loan-card .avatar img {
   width: 100%
 }
 
-.ticket-card .status-display {
+.loan-card .loan-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loan-card .profilename {
+  display: block
+}
+
+.loan-card .profilename:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: dodgerblue
+}
+
+.loan-card .loan-type {
   display: flex;
   justify-content: center;
 }
 
-.ticket-card .priority-display {
+.loan-card .loan-total-amount,
+.loan-amount-paid,
+.loan-remainder {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
-.ticket-card .priority-display .star-container {
-  display: flex;
-}
-
-.ticket-card .priority-display .star-container h3 {
-  margin: 7px;
-  padding: 0;
-}
-
-.ticket-card .progress-display {
-  min-width: 200px;
-}
-
-.ticket-card .progress-bar {
-  width: 100%;
-  height: 30px;
-  background-color: rgb(158, 158, 158);
-  border-radius: 15px;
-  overflow: hidden;
-}
-
-.ticket-card .progress-bar .progress-indicator {
-  background-color: rgb(104, 104, 175);
-  height: 100%;
-}
-
-.ticket-card .delete-block {
-  background-color: rgb(211, 211, 211);
+.loan-card .button {
   width: 50px;
   margin: 2px;
   display: flex;
@@ -143,56 +132,34 @@ nav .icons {
   align-items: center;
 }
 
-.ticket-card .delete-block .delete-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: rgb(61, 61, 61);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(255, 255, 255);
-}
-
-
-/*-----Ticket page-----*/
-
-.ticket {
+/*----- Add Profile -----*/
+.addProfile {
   padding: 30px;
   width: 100%
 }
 
-.ticket .ticket-container {
-  width: 100%;
-  display: flex;
-  justify-content: center
+.add-Profile {
+  padding: 30px;
+  width: 100%
 }
 
-.ticket form {
-  display: flex
-}
-
-.ticket form section {
-  display: flex;
-  flex-direction: column;
+/*-----Profile-----*/
+.profile {
   margin: 10px;
-  width: 500px
+  margin-right: 50px;
+  padding: 30px;
+  min-width: 400px;
+
 }
 
-.ticket form label {
-  margin: 20px 0 0 0
+.profile .details {
+  padding: 5px;
+  letter-spacing: 2px;
+  line-height: 30px;
 }
 
-.ticket form select,
-.ticket form input {
-
-  padding: 10px;
-  margin: 5px;
-  font-size: 15px;
-  border-radius: 10px;
-  border: 1.5px solid rgb(218, 218, 218)
-}
-
-.ticket form .multiple-input-container {
-  margin: 20px 0 20px 0
+.profile .property-image {
+  min-width: 250px;
+  min-height: 300px;
+  padding: 20px
 }
