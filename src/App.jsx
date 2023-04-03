@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route, useNavigate } from "react-router-dom";
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -54,6 +55,7 @@ function Nav() {
         <div className="nav-btn">
           <IconButton color="primary" onClick={() => navigate("/addProfile")}><PersonAddIcon /></IconButton>
         </div>
+        <Button onClick={() => navigate("/login")}>LOGIN</Button>
       </div>
 
       <div className="controls-continer">
@@ -63,6 +65,7 @@ function Nav() {
         <IconButton color="primary" aria-label="backward" onClick={() => navigate(-1)}>
           <ArrowBackIosIcon />
         </IconButton>
+
       </div>
     </div>
   )

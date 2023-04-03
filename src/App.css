@@ -60,7 +60,8 @@ body {
 }
 
 .dashboard {
-  height: 80vh;
+  height: 100%;
+  width: 100%;
   /* overflow: scroll; */
 }
 
@@ -181,6 +182,7 @@ body {
 }
 
 /*-----Login Dashboard-----*/
+
 
 .loginform {
   display: flex;
