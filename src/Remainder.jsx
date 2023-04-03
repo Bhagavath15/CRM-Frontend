@@ -31,7 +31,7 @@ export function Remainder({ loanDetail, setLoanDetail }) {
 
     const [loanDetails, setLoanDetails] = useState(null)
     useEffect(() => {
-        fetch(`http://localhost:4004/dashboard/${id}`)
+        fetch(`https://crm-backend-virid.vercel.app/dashboard/${id}`)
             .then((data) => data.json())
             .then((dts) => setLoanDetails(dts))
     }, [])
@@ -55,7 +55,7 @@ function EditProfileList({ loanDetails, setLoanDetails }) {
             navigate("/dashboard")
 
             // Send email reminder using NodeJS API
-            const response = fetch(`http://localhost:4004/dashboard/${loanDetails.id}`,
+            const response = fetch(`https://crm-backend-virid.vercel.app/dashboard/${loanDetails.id}`,
                 {
                     method: "POST",
                     body: JSON.stringify(event),

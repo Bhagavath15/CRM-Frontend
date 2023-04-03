@@ -24,7 +24,7 @@ export function EditProfile() {
 
     const [loanDetails, setLoanDetails] = useState(null)
     useEffect(() => {
-        fetch(`http://localhost:4004/dashboard/${id}`)
+        fetch(`https://crm-backend-virid.vercel.app/dashboard/${id}`)
             .then((data) => data.json())
             .then((dts) => setLoanDetails(dts))
     }, [])
@@ -210,7 +210,7 @@ function EditProfileList({ loanDetails }) {
 
     const UpdateData = (newUpdate) => {
         console.log(newUpdate)
-        fetch(`http://localhost:4004/dashboard/${loanDetails.id}`,
+        fetch(`https://crm-backend-virid.vercel.app/dashboard/${loanDetails.id}`,
             {
                 method: "PUT",
                 body: JSON.stringify(newUpdate),

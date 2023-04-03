@@ -120,7 +120,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   const navigate = useNavigate()
 
   const getDetails = () => {
-    fetch("http://localhost:4004/dashboard",
+    fetch("https://crm-backend-virid.vercel.app/dashboard",
       { method: "GET" })
       .then((data) => data.json())
       .then((dts) => setLoanDetail(dts))
@@ -128,7 +128,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   useEffect(() => getDetails(), [])
 
   const deleteDetails = (id) => {
-    fetch(`http://localhost:4004/dashboard/${id}`,
+    fetch(`https://crm-backend-virid.vercel.app/dashboard/${id}`,
       { method: "DELETE" })
       .then(() => getDetails())
   }

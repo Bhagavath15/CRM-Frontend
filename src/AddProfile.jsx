@@ -196,7 +196,7 @@ export function AddProfile() {
         }
     });
     const addData = (newdata) => {
-        fetch("http://localhost:4004/dashboard",
+        fetch("https://crm-backend-virid.vercel.app/dashboard",
             {
                 method: "POST",
                 body: JSON.stringify(newdata),
