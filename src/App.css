@@ -136,6 +136,12 @@ body {
   align-items: center;
 }
 
+.loan-card .loan-remainder:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: dodgerblue
+}
+
 /*----- Add Profile -----*/
 .addProfile {
   padding: 30px;
@@ -166,4 +172,43 @@ body {
   min-width: 250px;
   min-height: 300px;
   padding: 20px
+}
+
+/*-----Remainder-----*/
+.remainderForm {
+  padding: 30px;
+  width: 100%
+}
+
+/*-----Login Dashboard-----*/
+
+.loginform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.loginfield {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  gap: 10px;
+  align-content: center
+}
+
+.card .alreadyuser:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: dodgerblue
 }

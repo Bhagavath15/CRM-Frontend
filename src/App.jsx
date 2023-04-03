@@ -13,6 +13,8 @@ import { AddProfile } from './AddProfile';
 import CardActions from '@mui/material/CardActions';
 import { Profile } from './Profile';
 import { EditProfile } from './EditProfile';
+import { Remainder } from './Remainder';
+import { Login, Signin } from './Login';
 
 export default function App() {
   const [loanDetail, setLoanDetail] = useState([])
@@ -20,15 +22,26 @@ export default function App() {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/dashboard" element={<Dashboard loanDetail={loanDetail} setLoanDetail={setLoanDetail} />} />
-        <Route path="/dashboard/:id" element={<Profile />} />
-        <Route path="/addProfile" element={<AddProfile />} />
-        <Route path="/edit-dashboard/:id" element={<EditProfile />} />
+        <Route path="/" element={<Signin />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<ProtectedRoute><Dashboard loanDetail={loanDetail} setLoanDetail={setLoanDetail} /></ProtectedRoute>} />
+        <Route path="/dashboard/:id" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+        <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
+        <Route path="/edit-dashboard/:id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
+        <Route path="/sendRemainder/:id" element={<ProtectedRoute><Remainder loanDetail={loanDetail} setLoanDetail={setLoanDetail} /></ProtectedRoute>} />
       </Routes>
     </div>
   )
 }
 
+function ProtectedRoute({ children }) {
+  const token = localStorage.getItem('token');
+  // const token=false;
+  return (
+    token ? <section>{children}</section> : <Navigate replace to="/" />
+    //  token? <section>{children}</section>:<h1>unautharaied</h1>
+  )
+}
 function Nav() {
   const navigate = useNavigate()
   return (
@@ -104,7 +117,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   const navigate = useNavigate()
 
   const getDetails = () => {
-    fetch("https://6422b4e6001cb9fc202da663.mockapi.io/dashboard",
+    fetch("http://localhost:4004/dashboard",
       { method: "GET" })
       .then((data) => data.json())
       .then((dts) => setLoanDetail(dts))
@@ -112,7 +125,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   useEffect(() => getDetails(), [])
 
   const deleteDetails = (id) => {
-    fetch(`https://6422b4e6001cb9fc202da663.mockapi.io/dashboard/${id}`,
+    fetch(`http://localhost:4004/dashboard/${id}`,
       { method: "DELETE" })
       .then(() => getDetails())
   }
@@ -174,7 +187,7 @@ function LoanDetails({ loanDetails, id, deleteButton, editButton }) {
             <h4>Amount paid</h4>
             {loanDetails.amountPaid}
           </div>
-          <div className="loan-remainder">
+          <div className="loan-remainder" onClick={() => navigate(`/sendRemainder/${loanDetails.id}`)}>
             <h4> Remainder </h4>{loanDetails.remainder}
           </div>
           <div className="button">

@@ -18,8 +18,8 @@ export function Login() {
         },
         // validationSchema: formValidationSchema,
         onSubmit: async (values) => {
-            // console.log(values)
-            const data = await fetch("https://localhost:4004/login", {
+            console.log("submit")
+            const data = await fetch("http://localhost:4004/login", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -34,13 +34,13 @@ export function Login() {
                 const result = await data.json();
                 console.log("success", result);
                 localStorage.setItem("token", result.token);
-                navigate("/movies");
+                navigate("/dashboard");
             }
 
         }
     });
     return (
-        <Card>
+        <Card sx={{ mx: 2, height: 250 }} className="card">
             <CardContent>
                 <form onSubmit={formik.handleSubmit} className='loginform'>
                     <h2>LOGIN</h2>
@@ -89,7 +89,7 @@ export function Signin() {
     const adddata = (newdata) => {
         console.log(newdata)
 
-        fetch("https:/localhost:4004/signup", {
+        fetch("http:/localhost:4004/signup", {
             method: "POST",
             body: JSON.stringify(newdata),
             headers: {
@@ -99,7 +99,7 @@ export function Signin() {
         navigate("/")
     };
     return (
-        <Card>
+        <Card sx={{ mx: 2, height: 250 }} className="card">
             <form onSubmit={formik.handleSubmit} className='loginform'>
                 <h2>SIGNUP</h2>
                 <div className='loginfield'>

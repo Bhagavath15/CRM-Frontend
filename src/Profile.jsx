@@ -8,7 +8,7 @@ export function Profile() {
     const { id } = useParams();
     const [loanDetails, setLoanDetails] = useState([]);
     useEffect(() => {
-        fetch(`https://6422b4e6001cb9fc202da663.mockapi.io/dashboard/${id}`)
+        fetch(`http://localhost:4004/dashboard/${id}`)
             .then((data) => data.json())
             .then((dts) => setLoanDetails(dts));
     }, [id]);
