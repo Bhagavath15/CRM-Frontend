@@ -101,7 +101,7 @@ export function Signin() {
                 "content-type": "application/json"
             }
         })
-        navigate("/dashboard")
+        navigate("/login")
     };
     return (
         <div className="login-card">
