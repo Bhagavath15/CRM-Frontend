@@ -194,6 +194,7 @@ body {
 }
 
 .loginfield {
+  gap: 10px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -203,14 +204,19 @@ body {
 }
 
 .card {
-  margin: 20px;
-  padding: 20px;
+
+  padding: 100px;
   gap: 10px;
-  align-content: center
+  align-content: center;
+
 }
 
 .card .alreadyuser:hover {
   cursor: pointer;
   text-decoration: underline;
   color: dodgerblue
+}
+
+.login-card {
+  margin: auto
 }

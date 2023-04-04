@@ -40,32 +40,37 @@ export function Login() {
         }
     });
     return (
-        <Card sx={{ mx: 2, height: 250 }} className="card">
-            <CardContent>
-                <form onSubmit={formik.handleSubmit} className='loginform'>
-                    <h2>LOGIN</h2>
-                    <div className='loginfield'>
-                        <TextField
-                            name='username'
-                            value={formik.values.username}
-                            onChange={formik.handleChange}
-                            label="username"
-                            variant="outlined" />
-                        <TextField
-                            value={formik.values.password}
-                            onChange={formik.handleChange}
-                            label="password"
-                            name="password"
-                            variant="outlined" />
+        <div className="login-card">
 
-                        <CardActions>
-                            <Button color={formstate} type='submit' variant="contained">{formstate === "success" ? "submit" : "retry"}</Button>
-                        </CardActions>
-                    </div>
+            <Card sx={{ mx: 2, height: 250 }} className="card">
+                <CardContent>
+                    <form onSubmit={formik.handleSubmit} className='loginform'>
+                        <h2>LOGIN</h2>
+                        <div className='loginfield'>
+                            <TextField
+                                name='username'
+                                value={formik.values.username}
+                                onChange={formik.handleChange}
+                                label="username"
+                                variant="outlined" />
+                            <TextField
+                                value={formik.values.password}
+                                onChange={formik.handleChange}
+                                label="password"
+                                name="password"
+                                variant="outlined" />
 
-                </form>
-            </CardContent>
-        </Card>
+                            <CardActions>
+                                <Button color={formstate} type='submit' variant="contained">{formstate === "success" ? "submit" : "retry"}</Button>
+
+                            </CardActions>
+                            <p className="alreadyuser" onClick={() => navigate("/")}>SIGNIN</p>
+                        </div>
+
+                    </form>
+                </CardContent>
+            </Card>
+        </div>
     );
 }
 
@@ -89,44 +94,46 @@ export function Signin() {
     const adddata = (newdata) => {
         console.log(newdata)
 
-        fetch("https://crm-backend-virid.vercel.app/http:/localhost:4004/signup", {
+        fetch("https://crm-backend-virid.vercel.app/signup", {
             method: "POST",
             body: JSON.stringify(newdata),
             headers: {
                 "content-type": "application/json"
             }
         })
-        navigate("/")
+        navigate("/dashboard")
     };
     return (
-        <Card sx={{ mx: 2, height: 250 }} className="card">
-            <form onSubmit={formik.handleSubmit} className='loginform'>
-                <h2>SIGNUP</h2>
-                <div className='loginfield'>
-                    <TextField
-                        placeholder="username"
-                        name='username'
-                        value={formik.values.username}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        label="username"
-                        variant="outlined" />
-                    <TextField
-                        placeholder="password"
-                        value={formik.values.password}
-                        onBlur={formik.handleBlur}
-                        onChange={formik.handleChange}
-                        label="password"
-                        name="password"
-                        variant="outlined" />
-                    <Button color="success" type='submit' variant="contained">submit</Button>
-                    <p className="alreadyuser" onClick={() => navigate("/login")} sx={{ fontSize: 7 }}>
-                        Already registered user
-                    </p>
-                </div>
+        <div className="login-card">
+            <Card sx={{ mx: 2, height: 250 }} className="card">
+                <form onSubmit={formik.handleSubmit} className='loginform'>
+                    <h2>SIGNUP</h2>
+                    <div className='loginfield'>
+                        <TextField
+                            placeholder="username"
+                            name='username'
+                            value={formik.values.username}
+                            onBlur={formik.handleBlur}
+                            onChange={formik.handleChange}
+                            label="username"
+                            variant="outlined" />
+                        <TextField
+                            placeholder="password"
+                            value={formik.values.password}
+                            onBlur={formik.handleBlur}
+                            onChange={formik.handleChange}
+                            label="password"
+                            name="password"
+                            variant="outlined" />
+                        <Button color="success" type='submit' variant="contained">submit</Button>
+                        <p className="alreadyuser" onClick={() => navigate("/login")} sx={{ fontSize: 7 }}>
+                            Already registered user
+                        </p>
+                    </div>
 
-            </form>
-        </Card>
+                </form>
+            </Card>
+        </div>
 
     );
 }
