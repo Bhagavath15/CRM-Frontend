@@ -42,7 +42,7 @@ export function Login() {
     return (
         <div className="login-card">
 
-            <Card sx={{ mx: 2, height: 250 }} className="card">
+            <Card sx={{ mx: 2, height: 300 }} className="card">
                 <CardContent>
                     <form onSubmit={formik.handleSubmit} className='loginform'>
                         <h2>LOGIN</h2>
@@ -51,26 +51,30 @@ export function Login() {
                                 name='username'
                                 value={formik.values.username}
                                 onChange={formik.handleChange}
-                                label="username"
+                                label="Username"
                                 variant="outlined" />
                             <TextField
                                 value={formik.values.password}
                                 onChange={formik.handleChange}
-                                label="password"
+                                label="Password"
                                 name="password"
+                                type="password"
                                 variant="outlined" />
 
-                            <CardActions>
+                            <CardActions className="btn">
                                 <Button color={formstate} type='submit' variant="contained">{formstate === "success" ? "submit" : "retry"}</Button>
-
+                                <label className="alreadyuser" onClick={() => navigate("/")}>Sign in</label>
+                                <label className="alreadyuser" onClick={() => navigate("/forget-password")} >
+                                    Forget Password
+                                </label>
                             </CardActions>
-                            <p className="alreadyuser" onClick={() => navigate("/")}>SIGNIN</p>
+
                         </div>
 
                     </form>
                 </CardContent>
             </Card>
-        </div>
+        </div >
     );
 }
 
@@ -115,15 +119,16 @@ export function Signin() {
                             value={formik.values.username}
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
-                            label="username"
+                            label="Username"
                             variant="outlined" />
                         <TextField
                             placeholder="password"
                             value={formik.values.password}
                             onBlur={formik.handleBlur}
                             onChange={formik.handleChange}
-                            label="password"
+                            label="Password"
                             name="password"
+                            type="password"
                             variant="outlined" />
                         <Button color="success" type='submit' variant="contained">submit</Button>
                         <p className="alreadyuser" onClick={() => navigate("/login")} sx={{ fontSize: 7 }}>

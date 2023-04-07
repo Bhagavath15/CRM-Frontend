@@ -15,7 +15,11 @@ import CardActions from '@mui/material/CardActions';
 import { Profile } from './Profile';
 import { EditProfile } from './EditProfile';
 import { Remainder } from './Remainder';
+import TextField from '@mui/material/TextField';
 import { Login, Signin } from './Login';
+import { ForgetPassword } from "./forgetPassword"
+import { VerifyOtp } from './VerifyOtp';
+
 
 export default function App() {
   const [loanDetail, setLoanDetail] = useState([])
@@ -30,9 +34,30 @@ export default function App() {
         <Route path="/addProfile" element={<ProtectedRoute><AddProfile /></ProtectedRoute>} />
         <Route path="/edit-dashboard/:id" element={<ProtectedRoute><EditProfile /></ProtectedRoute>} />
         <Route path="/sendRemainder/:id" element={<ProtectedRoute><Remainder loanDetail={loanDetail} setLoanDetail={setLoanDetail} /></ProtectedRoute>} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/verifyotp" element={<VerifyOtp />} />
       </Routes>
     </div>
   )
+}
+
+function SearchBar({ loanDetail }) {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" onChange={handleSearch} />
+      {/* <ul>
+        {filteredData.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul> */}
+    </div>
+  );
 }
 
 function ProtectedRoute({ children }) {
@@ -136,6 +161,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   return (
     <div className="dashboard">
       <h2>Customer details about loans</h2>
+      <SearchBar />
       {loanDetail.map((details, index, id) =>
         <LoanDetails loanDetails={details} key={index} id={details.id}
           deleteButton={
