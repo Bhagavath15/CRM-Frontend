@@ -8,8 +8,6 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 
-
-
 export function VerifyOtp() {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
@@ -20,7 +18,7 @@ export function VerifyOtp() {
     const handleResetPassword = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:4004/verifyotp', {
+            const response = await fetch('https://crm-backend-virid.vercel.app/verifyotp', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, otp, password }),
