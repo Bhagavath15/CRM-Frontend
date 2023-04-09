@@ -41,24 +41,24 @@ export default function App() {
   )
 }
 
-function SearchBar({ loanDetail }) {
-  const [searchTerm, setSearchTerm] = useState('');
+// function SearchBar({ loanDetail }) {
+//   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+//   const handleSearch = (event) => {
+//     setSearchTerm(event.target.value);
+//   };
 
-  return (
-    <div>
-      <input type="text" onChange={handleSearch} />
-      {/* <ul>
-        {filteredData.map((item) => (
-          <li key={item.id}>{item.title}</li>
-        ))}
-      </ul> */}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <input type="text" onChange={handleSearch} />
+//       {/* <ul>
+//         {filteredData.map((item) => (
+//           <li key={item.id}>{item.title}</li>
+//         ))}
+//       </ul> */}
+//     </div>
+//   );
+// }
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('token');
@@ -161,7 +161,7 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   return (
     <div className="dashboard">
       <h2>Customer details about loans</h2>
-      <SearchBar />
+      {/* <SearchBar /> */}
       {loanDetail.map((details, index, id) =>
         <LoanDetails loanDetails={details} key={index} id={details.id}
           deleteButton={
