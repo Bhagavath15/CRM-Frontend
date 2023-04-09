@@ -70,6 +70,13 @@ function ProtectedRoute({ children }) {
 }
 function Nav() {
   const navigate = useNavigate()
+  const handleClick = () => {
+    localStorage.removeItem('token');
+    setTimeout(() => {
+      navigate("/login")
+    }, 1500);
+    console.log("logout")
+  }
   return (
     <div className="nav">
       <div className="logo-container" >
@@ -81,6 +88,7 @@ function Nav() {
           <IconButton color="primary" onClick={() => navigate("/addProfile")}><PersonAddIcon /></IconButton>
         </div>
         <Button onClick={() => navigate("/login")}>LOGIN</Button>
+        <Button onClick={handleClick}>LOGOUT</Button>
       </div>
 
       <div className="controls-continer">
