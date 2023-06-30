@@ -153,8 +153,12 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   const navigate = useNavigate()
 
   const getDetails = () => {
+    const token = localStorage.getItem('token');
     fetch("https://crm-backend-virid.vercel.app/dashboard",
-      { method: "GET" })
+      { method: "GET",  
+      headers: {
+        'x-auth-token': token,
+    } })
       .then((data) => data.json())
       .then((dts) => setLoanDetail(dts))
   }
