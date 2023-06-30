@@ -7,8 +7,13 @@ import Typography from '@mui/material/Typography';
 export function Profile() {
     const { id } = useParams();
     const [loanDetails, setLoanDetails] = useState([]);
+    const token = localStorage.getItem('token');
     useEffect(() => {
-        fetch(`https://crm-backend-virid.vercel.app/dashboard/${id}`)
+        fetch(`https://crm-backend-virid.vercel.app/dashboard/${id}`, {
+            headers: {
+                'x-auth-token': token,
+            }
+        })
             .then((data) => data.json())
             .then((dts) => setLoanDetails(dts));
     }, [id]);
