@@ -87,8 +87,14 @@ function Nav() {
         <div className="nav-btn">
           <IconButton color="primary" onClick={() => navigate("/addProfile")}><PersonAddIcon /></IconButton>
         </div>
-        <Button onClick={() => navigate("/login")}>LOGIN</Button>
-        <Button onClick={handleClick}>LOGOUT</Button>
+        {
+          localStorage.getItem("token") == null ? (
+            <Button onClick={() => navigate("/login")}>LOGIN</Button>
+          ) : (
+            <Button onClick={handleClick}>LOGOUT</Button>
+          )
+        }
+
       </div>
 
       <div className="controls-continer">
@@ -155,10 +161,12 @@ function Dashboard({ loanDetail, setLoanDetail }) {
   const getDetails = () => {
     const token = localStorage.getItem('token');
     fetch("https://crm-backend-virid.vercel.app/dashboard",
-      { method: "GET",  
-      headers: {
-        'x-auth-token': token,
-    } })
+      {
+        method: "GET",
+        headers: {
+          'x-auth-token': token,
+        }
+      })
       .then((data) => data.json())
       .then((dts) => setLoanDetail(dts))
   }
